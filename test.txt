@@ -1,0 +1,49 @@
+// Xin chao, toi la Nguyen Van Nhat, nam nay 19 tuoi
+import java.util.Random;
+
+public class RandomComparison {
+    public static void main(String[] args) {
+        int numValues = 25;
+        int[] randomValues = generateRandomValues(numValues);
+        int referenceValue = generateRandomValue();
+
+        System.out.println("Generated random values:");
+        for (int value : randomValues) {
+            System.out.print(value + " ");
+        }
+
+        System.out.println("\nReference value: " + referenceValue);
+
+        classifyValues(randomValues, referenceValue);
+    }
+
+    private static int[] generateRandomValues(int numValues) {
+        Random random = new Random();
+        int[] values = new int[numValues];
+
+        for (int i = 0; i < numValues; i++) {
+            values[i] = random.nextInt(100) + 1; // Generates random values between 1 and 100
+        }
+
+        return values;
+    }
+
+    private static int generateRandomValue() {
+        Random random = new Random();
+        return random.nextInt(100) + 1; // Generates a random value between 1 and 100
+    }
+
+    private static void classifyValues(int[] values, int referenceValue) {
+        System.out.println("\nClassifications:");
+
+        for (int value : values) {
+            if (value > referenceValue) {
+                System.out.println(value + " is greater than the reference value.");
+            } else if (value < referenceValue) {
+                System.out.println(value + " is less than the reference value.");
+            } else {
+                System.out.println(value + " is equal to the reference value.");
+            }
+        }
+    }
+}
